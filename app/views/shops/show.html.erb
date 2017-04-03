@@ -1,0 +1,57 @@
+<div class="container" style="margin-top: 40px">
+	<div class="col-md-10 col-md-offset-1">
+		<h1>Shop Detail</h1>
+		<div>
+			<ul class="list-unstyled">
+				<li>
+					<strong>Shop Name:</strong>
+					<%= @shop.shop_name %>
+				</li>
+				<li>
+					<strong>Address:</strong>
+					<%= @shop.shop_address %>
+				</li>
+				<li>
+					<strong>Postcode:</strong>
+					<%= @shop.shop_postcode %>
+				</li>
+				<li>
+					<strong>Phone Number (Primary):</strong>
+					<%= @shop.shop_phone %>
+				</li>
+				<li>
+					<strong>Phone Number (Secondary):</strong>
+					<%= @shop.shop_other_phone %>
+				</li>
+			</ul>
+		</div>
+		<div>
+		<%= link_to 'Edit Shop', edit_owner_shop_path(current_owner, @shop)%>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<h2>Dockets List</h2>
+			<table class="table table-stripped">
+				<thead>
+					<tr>
+						<th>Customer Name</th>
+						<th>Address</th>
+						<th>Postcode</th>
+						<th>Phone Number (Primary)</th>
+						<th>Phone Number (Secondary)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @shop.customers.each do |customer| %>
+						<tr>
+							<td><%= customer.cust_name %></td>
+							<td><%= customer.cust_address%></td>
+							<td><%= customer.cust_postcode %></td>
+							<td><%= customer.cust_phone %></td>
+							<td><%= customer.cust_other_phone %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

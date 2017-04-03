@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 40px">
+	<div class="col-md-6">
+		<h2>Docket</h2>
+		<%= form_for [current_owner, @customer] do |f| %>
+			<div class="form-group">
+				<%= f.select_tag 'shops', options_from_collection_for_select(current_owner.shops.all, "shop_name", :shop_name), prompt: "Select Shop", id: "owner_shop" %>
+				<div id="shopResult"></div>
+			</div>
+			<div class="form-group">
+				<%= f.label :cust_name, "customer name".upcase %>
+				<%= f.text_field :cust_name, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :cust_address, "address".upcase %>
+				<%= f.text_area :cust_address, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :cust_phone, "phone number".upcase %>
+				<%= f.text_field :cust_phone, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.label :cust_postcode, "postcode".upcase %>
+				<%= f.text_field :cust_postcode, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.submit class: "form-control btn btn-primary" %>
+			</div>
+		<% end %>
+	</div>
+</div>

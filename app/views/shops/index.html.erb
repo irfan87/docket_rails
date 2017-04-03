@@ -1,0 +1,12 @@
+<div class="container" style="margin-top: 10px">
+	<h1>Shops Profile</h1>
+	<% if current_owner.shops.present? %>
+		<div><%= link_to 'New Shop'.upcase, new_owner_shop_path(current_owner), class: 'btn btn-primary' %></div>
+		<div class="col-md-12">
+			<%= render 'shops/shops_list' %>
+		</div>
+	<% else %>
+		<p>You don't have any shop set yet.. </p>
+		<div><%= link_to 'Create new', new_owner_shop_path(current_owner) %></div>
+	<% end %>
+</div>

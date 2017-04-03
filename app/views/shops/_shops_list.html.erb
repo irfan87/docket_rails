@@ -1,0 +1,16 @@
+<% current_owner.shops.each do |shop| %>
+	<div class="col-md-4">
+		<div class="panel">
+			<div class="panel-heading">
+				<h3><%= link_to shop.shop_name, owner_shop_path(current_owner, shop) %></h3>
+			</div>
+			<div class="panel-body">
+				<% if shop.customers.blank? %>
+					<strong>No docket yet..</strong>
+				<% else %>
+					<strong>You have <%= pluralize(shop.customers.count, 'docket') %></strong>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% end %>

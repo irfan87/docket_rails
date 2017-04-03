@@ -1,0 +1,34 @@
+<%= form_for [current_owner, @shop] do |f| %>
+	<div class="form-group">
+		<%= f.label :shop_name, 'shop name'.upcase %>
+		<%= f.text_field :shop_name, class: "form-control", placeholder: 'Shop Name', autofocus: true %>
+	</div>
+	<div class="form-group">
+		<%= f.label :shop_address, 'shop address'.upcase %>
+		<%= f.text_area :shop_address, cols: 5, rows: 6, class: "form-control", placeholder: 'Shop Address' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :shop_postcode, 'postcode'.upcase %>
+		<%= f.text_field :shop_postcode, class: "form-control", placeholder: 'Shop Postcode' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :shop_phone, 'phone number (primary)'.upcase %>
+		<%= f.text_field :shop_phone, class: "form-control", placeholder: 'Phone Number (Primary)' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :shop_other_phone, 'phone number (secondary)'.upcase %>
+		<%= f.text_field :shop_other_phone, class: "form-control", placeholder: 'Phone Number (Secondary)' %>
+	</div>
+	<div class="panel">
+		<%= f.fields_for :customers do |customer| %>
+			<div class="panel-body">
+				<%= render 'customer_fields', f: customer %>
+			</div>
+		<% end %>
+	</div>
+	<%= render 'shops/error_message' %>
+	<div class="form-group">
+		<%= link_to_add_association "New Docket", f, :customers, class: 'btn btn-info' %>
+		<%= f.submit 'save'.upcase, class: "btn btn-primary" %>
+	</div>
+<% end %>

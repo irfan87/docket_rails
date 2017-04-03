@@ -1,0 +1,11 @@
+<% if @shop.errors.any? %>
+	<div id="error_explanation" class="alert alert-danger">
+<!-- 		<h2>Oh oh.. crap.. Unable to save <%= pluralize(@shop.errors.count, "error")%> </h2> -->
+		<h3>Oh oh.. crap.. Unable to save your shop! </h3>
+		<ul>
+		<% @shop.errors.full_messages.each do |em| %>
+			<li><%= em %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>

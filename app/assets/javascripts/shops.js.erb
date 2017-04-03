@@ -1,0 +1,29 @@
+$(document).ready(function(){
+	$("#owner_shop").change(function(){
+		$(this).find("option:selected").each(function(){
+			// var optValue = $(this).attr("value");
+			var optValue = $(this).val();
+			if(optValue != "") {
+				// $("#shopResult").append("<p>Shop " + optValue + "</p>");
+				$.ajax({
+					url: "owner_shops/#{current_owner}/shops",
+					type: 'GET',
+					data: optValue,
+					success: function(data){
+						for (var i in data){
+							var id = data[i].shop_id;
+							var shop_name = data[i].shop_name;
+							$("#shopResult").append("shop " + shop_name);
+
+							console.log(shop_name);
+							debugger;
+						}
+					},
+					error: function(data){
+						console.log(data);
+					}
+				});
+			}
+		});
+	}).change();
+});

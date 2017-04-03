@@ -1,0 +1,34 @@
+<div class="nested-fields">
+	<div class="panel-heading">
+		<h1>Docket Form</h1>
+	</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<%= f.label :cust_name, 'Customer Name' %>
+			<%= f.text_field :cust_name, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.label :cust_address, 'Customer Address' %>
+			<%= f.text_area :cust_address, class: "form-control", cols: 5, rows: 6 %>
+		</div>
+		<div class="form-group">
+			<%= f.label :cust_postcode, 'Customer Postcode' %>
+			<%= f.text_field :cust_postcode, class: "form-control"  %>
+		</div>
+		<div class="form-group">
+			<%= f.label :cust_phone, 'Customer Phone (Primary)' %>
+			<%= f.text_field :cust_phone, class: "form-control"  %>
+		</div>
+		<div class="form-group">
+			<%= f.label :cust_other_phone, 'Customer Phone (Secondary)' %>
+			<%= f.text_field :cust_other_phone, class: "form-control"  %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'Destroy form' %>
+			<%= f.check_box :_destroy, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= link_to_remove_association "Remove Docket", f, class: 'btn btn-danger' %>
+		</div>
+	</div>
+</div>
