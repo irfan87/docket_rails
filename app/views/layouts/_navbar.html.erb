@@ -6,7 +6,6 @@
 			<%= menu_group pull: :right do %>
 				<%= drop_down current_owner.email do %>
 					<%= menu_item 'Edit Profile', edit_owner_registration_path %>
-					<%= menu_item 'Edit Shop',  edit_owner_shop_path(current_owner, current_owner.shops), disabled: 'disable' %>
 					<%= menu_item "Log Out", destroy_owner_session_path, method: :delete %>
 				<% end %>
 			<% end %>

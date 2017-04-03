@@ -20,11 +20,13 @@
 		<%= f.text_field :shop_other_phone, class: "form-control", placeholder: 'Phone Number (Secondary)' %>
 	</div>
 	<div class="panel">
-		<%= f.fields_for :customers do |customer| %>
-			<div class="panel-body">
-				<%= render 'customer_fields', f: customer %>
-			</div>
-		<% end %>
+		<div id="customers">
+			<%= f.fields_for :customers do |customer| %>
+				<div class="panel-body">
+					<%= render 'customer_fields', f: customer %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 	<%= render 'shops/error_message' %>
 	<div class="form-group">
